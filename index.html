@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゆっくり解説 投稿・分析ツール</title>
+<meta name="description" content="ゆっくり解説の YouTube チャンネルの持ち主が、自分のチャンネルへの動画の投稿と、視聴データ・コメントの確認に使う個人用のツールです。">
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --text: #1f2328;
+    --muted: #59636e;
+    --line: #d8dee4;
+    --card: #ffffff;
+    --accent: #1a3a6b;
+    --link: #0b57d0;
+    --note-bg: #fff8e1;
+    --note-line: #e6c34a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15181c;
+      --text: #e6e8eb;
+      --muted: #9aa4ae;
+      --line: #333a42;
+      --card: #1c2026;
+      --accent: #9db8e8;
+      --link: #8ab4f8;
+      --note-bg: #2b2616;
+      --note-line: #8a7425;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 2rem 16px 3rem; }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .kicker { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  h1 { margin: 0.2rem 0 0; font-size: 1.7rem; line-height: 1.4; color: var(--accent); }
+  h2 { margin: 2.2rem 0 0.6rem; font-size: 1.2rem; line-height: 1.5; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+  p, ul, ol { margin: 0.6rem 0; }
+  ul, ol { padding-left: 1.4rem; }
+  li + li { margin-top: 0.3rem; }
+  a { color: var(--link); }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 0.85em; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 0 0.3em; }
+  .scopes { list-style: none; padding: 0; }
+  .scopes li { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.8rem 1rem; }
+  .scopes li + li { margin-top: 0.6rem; }
+  .scopes strong { display: block; }
+  .scopes code { display: inline-block; margin: 0.2rem 0; }
+  .note { background: var(--note-bg); border-left: 4px solid var(--note-line); border-radius: 4px; padding: 0.8rem 1rem; margin: 1rem 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 0; list-style: none; }
+  .links li + li { margin-top: 0; }
+  .links a { display: inline-block; border: 1px solid var(--line); background: var(--card); border-radius: 6px; padding: 0.4rem 0.9rem; text-decoration: none; }
+  .links a:hover { border-color: var(--link); }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="kicker">ゆっくり解説の YouTube チャンネルのための個人用ツール</p>
+    <h1>ゆっくり解説 投稿・分析ツール</h1>
+  </header>
+
+  <p>
+    このページは、ゆっくり解説の YouTube チャンネルの持ち主が、<strong>自分のチャンネルのためだけに使う個人用のツール</strong>の説明です。
+    一般に公開しているサービスではありません。
+  </p>
+
+  <ul class="links">
+    <li><a href="privacy.html">プライバシーポリシー</a></li>
+    <!-- 置きかえ：リポジトリ名を yukkuri-kaisetsu-app 以外にしたときは、下の URL のリポジトリ名も変えてください -->
+    <li><a href="https://github.com/matsuura5555/yukkuri-kaisetsu-app/issues">お問い合わせ</a></li>
+  </ul>
+
+  <h2>このツールでできること</h2>
+  <ul>
+    <li>持ち主が作った動画を、持ち主の YouTube チャンネルに投稿します。投稿は「非公開」で行い、持ち主が内容を確かめてから公開します。</li>
+    <li>投稿した動画に、サムネイル（表紙の画像）と日本語の字幕を設定します。</li>
+    <li>持ち主のチャンネルの視聴データ（再生回数、どこまで見られたか、どこから見に来たか、表示回数とクリック率など）を読みます。</li>
+    <li>持ち主の動画に寄せられたコメントを読みます。</li>
+  </ul>
+  <p>
+    読んだデータは、次の動画の台本や作り方を直すことに使います。
+    ツールは持ち主の PC の中で動くプログラムで、データを集めるためのサーバーはありません。
+  </p>
+
+  <h2>使う人</h2>
+  <p>
+    使うのはチャンネルの持ち主1人だけです。ほかの人に配ったり、ほかの人の Google アカウントで使ったりはしません。
+  </p>
+
+  <h2>使う Google の権限</h2>
+  <p>このツールは YouTube API サービスを使います。持ち主の Google アカウントで、次の権限を許可して使います。</p>
+  <ul class="scopes">
+    <li>
+      <strong>YouTube への動画の投稿</strong>
+      <code>youtube.upload</code>
+      <div>持ち主のチャンネルに動画を投稿します。</div>
+    </li>
+    <li>
+      <strong>YouTube のデータの閲覧・管理</strong>
+      <code>youtube.force-ssl</code>
+      <div>投稿した動画のサムネイル・字幕の設定と、公開・予約公開への切りかえ（持ち主が確かめたあと）に使います。持ち主の動画へのコメントを読むのにも使います。コメントへの返信・削除や、動画の削除はしません。</div>
+    </li>
+    <li>
+      <strong>YouTube のデータの閲覧</strong>
+      <code>youtube.readonly</code>
+      <div>持ち主のチャンネルと動画の情報（タイトル、再生回数など）を読みます。視聴データの問い合わせにも必要です。</div>
+    </li>
+    <li>
+      <strong>YouTube Analytics の閲覧</strong>
+      <code>yt-analytics.readonly</code>
+      <div>持ち主の動画の視聴データ（再生回数、総再生時間、視聴維持率、流入元、YouTube 検索の検索語、表示回数とクリック率など）を読みます。</div>
+    </li>
+    <li>
+      <strong>収益レポートの閲覧</strong>
+      <code>yt-analytics-monetary.readonly</code>
+      <div>チャンネルで収益化を始めたときに、持ち主の動画の収益と広告のデータを読むためのものです。いまは読んでいません。</div>
+    </li>
+  </ul>
+  <p>
+    Google アカウントのメールアドレス・名前・連絡先や、YouTube 以外の Google サービスのデータは読みません。
+    取得する情報と、その扱いは<a href="privacy.html">プライバシーポリシー</a>に書いています。
+  </p>
+
+  <div class="note">
+    このツールは YouTube API サービスを使っています。このツールを使うことで、
+    <a href="https://www.youtube.com/t/terms">YouTube 利用規約</a>に同意したことになります。
+    Google によるデータの扱いは、<a href="https://www.google.com/policies/privacy">Google プライバシー ポリシー</a>をご覧ください。
+  </div>
+
+  <h2>お問い合わせ</h2>
+  <p>
+    <!-- 置きかえ：リポジトリ名を yukkuri-kaisetsu-app 以外にしたときは、下の URL のリポジトリ名も変えてください -->
+    このツールについてのご質問は、<a href="https://github.com/matsuura5555/yukkuri-kaisetsu-app/issues">このページのリポジトリの Issues</a>
+    でお知らせください（GitHub のアカウントが必要です）。Issues は誰でも読める場所なので、個人情報は書かないでください。
+  </p>
+
+  <footer>
+    <p>制定日：2026年10月27日</p>
+  </footer>
+</main>
+</body>
+</html>
